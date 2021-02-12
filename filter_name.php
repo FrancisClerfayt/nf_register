@@ -50,7 +50,10 @@
 				
 			</div>
 			<div class="col-2 mx-2">
-				
+				<?php
+					$href = "test_export.php?startingDate=$startingDate&endingDate=$endingDate&lastname=$lastname&firstname=$firstname";
+				?>
+				<a class="btn btn-nf btn-lg" href="<?php echo $href ?>">Export PDF</a>
 			</div>
 		</div>
 	</header>
