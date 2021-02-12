@@ -7,7 +7,7 @@
 		$page = 1;
 	}
 
-	$number_of_lines_to_display = 18;
+	$number_of_lines_to_display = 15;
 
 	$data_offset = ($page - 1) * $number_of_lines_to_display;
 
@@ -23,7 +23,7 @@
 	FROM `register` AS r
 	INNER JOIN `places` AS p
 	ON p.`id` = r.`place_id`
-	ORDER BY r.`id` ASC
+	ORDER BY r.`date` ASC
 	LIMIT $data_offset, $number_of_lines_to_display;";
 
 	$stmt = $db->query($query);
@@ -31,7 +31,7 @@
 	$counter = $db->query("SELECT COUNT(*) AS nb_lines FROM register")->fetch();
 	$size = (int) $counter['nb_lines'];
 
-	$last_data = $data_offset . $number_of_lines_to_display;
+	$last_data = $data_offset + $number_of_lines_to_display;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +54,10 @@
 	<header class="container-fluid">
 		<div class="row justify-content-center align-items-center">
 			<div class="col-2 mx-2">
-				<a href="" class="btn btn-nf btn-lg">Filtrer par date et par nom</a>
+				<a href="filter_name_form.php" class="btn btn-nf btn-lg">Filtrer par date et par nom</a>
 			</div>
 			<div class="col-2 mx-2">
-				<a href="" class="btn btn-nf btn-lg">Filtrer par date et par lieu</a>
+				<a href="filter_place_form.php" class="btn btn-nf btn-lg">Filtrer par date et par lieu</a>
 			</div>
 			<div class="col-2 mx-2">
 				<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
@@ -91,11 +91,11 @@
 					<tr>
 						<th>Date</th>
 						<th>Heure d'arrivée</th>
-						<th>Heure de Départ</th>
 						<th>Nom</th>
 						<th>Prénom</th>
-						<th>Téléphone</th>
 						<th>Email</th>
+						<th>Téléphone</th>
+						<th>Lieu</th>
 					</tr>
 				</thead>
 				<tbody>

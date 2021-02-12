@@ -18,6 +18,8 @@
 
 	<title>Nouvelle Forge - Registre</title>
 
+	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+
 	<link rel="stylesheet" href="./css/bootstrap.css">
 	<link rel="stylesheet" href="./css/fonts.css">
 	<link rel="stylesheet" href="./css/style.css">
