@@ -77,7 +77,7 @@
 			// Helvetica italic 12
 			$this->SetFont('Helvetica', 'I', 12);
 			// page number
-			$this->Cell(0, 8, 'Nouvelle Forge, 80 Avenue Roland Moreno, 59410 Anzin France , tél: 03 62 26 05 60 , mail: contact@nouvelleforge.fr | ' . ' Page '.$this->PageNo().'/{nb}', 0, 0, 'R');
+			$this->Cell(0, 8, utf8_decode('Nouvelle Forge, 80 Avenue Roland Moreno, 59410 Anzin, tél: 03 62 26 05 60 | ') . ' Page '.$this->PageNo().'/{nb}', 0, 0, 'R');
 		}
 
 	}

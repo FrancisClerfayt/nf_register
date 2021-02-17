@@ -1,5 +1,10 @@
 <?php
-	require('./inc/database_connection.php');
+	session_start();
+
+	if(!isset($_SESSION["email"])){
+		header("Location: login_form.php");
+		exit(); 
+	}
 
 	if (isset($_GET['page'])){
 		$page = filter_var($_GET['page'], FILTER_SANITIZE_NUMBER_INT);
@@ -10,6 +15,8 @@
 	$number_of_lines_to_display = 15;
 
 	$data_offset = ($page - 1) * $number_of_lines_to_display;
+
+	require('./inc/database_connection.php');
 
 	$query = 
 	"SELECT 
@@ -52,34 +59,43 @@
 </head>
 <body>
 	<header class="container-fluid">
-		<div class="row justify-content-center align-items-center">
-			<div class="col-2 mx-2">
+		<div class="row justify-content-around align-items-center">
+			<div class="col-2">
+				<a href="data_display.php">
+					<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
+				</a>
+			</div>
+			<div class="col-2">
 				<a href="filter_name_form.php" class="btn btn-nf btn-lg">Filtrer par date et par nom</a>
 			</div>
-			<div class="col-2 mx-2">
+			<div class="col-2">
 				<a href="filter_place_form.php" class="btn btn-nf btn-lg">Filtrer par date et par lieu</a>
 			</div>
-			<div class="col-2 mx-2">
-				<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
-			</div>
-			<div class="col-2 mx-2">
+			<div class="col-2">
 				<?php 
-				
-				if ($page > 1) {
-					$previous = $page - 1;
-					echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf btn-lg\">Page précédente</a>";
-				}
-				
+					if ($page > 1) {
+						$previous = $page - 1;
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf btn-lg\">Page précédente</a>";
+					}
 				?>
 			</div>
-			<div class="col-2 mx-2">
+			<div class="col-2">
 				<?php
-
-				if ($last_data < $size) {
-					$next = $page + 1;
-					echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf btn-lg\">Page suivante</a>";
-				}
-
+					if ($last_data < $size) {
+						$next = $page + 1;
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf btn-lg\">Page suivante</a>";
+					}
+				?>
+			</div>
+			<div class="col-2">
+				<?php
+					$email = $_SESSION['email'];
+					$q = "SELECT `isAdmin` FROM `users` WHERE `email` = '$email'";
+					$stmt = $db->query($q);
+					$result = $stmt->fetch(PDO::FETCH_ASSOC);
+					if ($result['isAdmin'] == '1'){
+						echo "<a href=\"admin.php\" class=\"btn btn-nf btn-lg\">Admin. comptes</a>";
+					}
 				?>
 			</div>
 		</div>

@@ -1,4 +1,11 @@
 <?php
+	session_start();
+
+	if(!isset($_SESSION["email"])){
+		header("Location: login_form.php");
+		exit(); 
+	}
+
 	require('./inc/database_connection.php');
 
 	$startingDate = filter_var($_GET['startingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -42,7 +49,9 @@
 				<a class="btn btn-nf btn-lg" href="filter_place_form.php">Filtrer par date et par lieu</a>
 			</div>
 			<div class="col-2 mx-2">
-				<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
+				<a href="data_display.php">
+					<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
+				</a>
 			</div>
 			<div class="col-2 mx-2">
 				

@@ -1,15 +1,16 @@
 <?php
 	ini_set('display_errors', 1);
-	try {
 
-		$database_host = 'localhost';
-		$database_port = '3306';
-		$database_name = 'nf_register';
-		$database_user = 'userpop';
-		$database_pswd = 'azerty12345!';
+	$db_host = 'localhost';
+	$db_port = '3306';
+	$db_name = 'nf_register';
+	$db_user = 'userpop';
+	$db_pswd = 'azerty12345!';
+	
+	try {
 		
-		// connect to Database
-		$db = new \PDO("mysql:host=$database_host;port=$database_port;dbname=$database_name", $database_user, $database_pswd);
+		// connect to database
+		$db = new \PDO("mysql:host=$db_host;port=$db_port;dbname=$db_name", $db_user, $db_pswd);
 		
 	} catch(\PDOException $e) {
 		echo $e->getMessage(); // display error message
