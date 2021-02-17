@@ -16,7 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Nouvelle Forge - Registre</title>
+	<title>Nouvelle Forge - Formulaire registre</title>
 
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 
@@ -29,7 +29,7 @@
 	<div class="container-fluid">
 		<div class="row justify-content-center align-items-center">
 			<img src="./assets/logo_nf_2018.png" alt="logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin" class="logo">
-			<h1 class="text-center">Veuillez sélectionner dans quel lieu vous visitez</h1>
+			<h1 class="text-center">Merci de sélectionner le lieu de votre visite</h1>
 		</div>
 		<div class="row justify-content-center align-items-center px-4">
 			<?php

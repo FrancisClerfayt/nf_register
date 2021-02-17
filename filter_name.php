@@ -1,10 +1,10 @@
 <?php
 	require('./inc/database_connection.php');
 
-	$startingDate = $_GET['startingDate'];
-	$endingDate = $_GET['endingDate'];
-	$lastname = $_GET['lastname'];
-	$firstname = $_GET['firstname'];
+	$startingDate = filter_var($_GET['startingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$endingDate = filter_var($_GET['endingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$lastname = filter_var($_GET['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$firstname = filter_var($_GET['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 	$query = "SELECT r.`date`,r.`time`,r.`lastname`,r.`firstname`,r.`email`,r.`phone`,p.`name` AS `place`
 	FROM `register` AS r
@@ -25,7 +25,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Document</title>
+	<title>Nouvelle Forge - Affichage filtré par nom</title>
 
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 
@@ -51,7 +51,7 @@
 			</div>
 			<div class="col-2 mx-2">
 				<?php
-					$href = "test_export.php?startingDate=$startingDate&endingDate=$endingDate&lastname=$lastname&firstname=$firstname";
+					$href = "pdf_export.php?startingDate=$startingDate&endingDate=$endingDate&lastname=$lastname&firstname=$firstname";
 				?>
 				<a class="btn btn-nf btn-lg" href="<?php echo $href ?>">Export PDF</a>
 			</div>

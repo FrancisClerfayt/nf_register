@@ -3,7 +3,8 @@
 	require('./inc/database_connection.php');
 
 	if (isset($_GET['place'])) {
-		$place = $_GET['place'];
+		$places = $db->query('SELECT parameter FROM places;')->fetchAll();
+		$place = filter_var($_GET['place'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	}
 
 	$query = "SELECT * FROM `places` WHERE `parameter` = '$place';";
@@ -31,9 +32,9 @@
 </head>
 <body>
 	<div class="container-fluid">
-	<div class="row justify-content-center align-items-center">
+		<div class="row justify-content-center align-items-center">
 			<img class="logo" src="./assets/logo_nf_2018.png" alt="logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin">
-			<h1 class="text-center">Veuillez remplir le registre des visites</h1>
+			<h1 class="text-center">Merci de remplir le registre des visites</h1>
 		</div>
 		<div class="row justify-content-center align-items-center">
 			<form class="container form was-validated" id="registerForm" method="POST" action="register_send.php">
@@ -90,7 +91,7 @@
 							</a>
 							de Nouvelle Forge.
 						</label>
-						<div class="invalid-feedback">Vous devez cochez la case pour valider le formulaire</div>
+						<div class="invalid-feedback">Merci de cochez la case pour valider le formulaire</div>
 					</div>
 				</div>
 				<div class="row justify-content-center align-items-center px-4 mb-3">

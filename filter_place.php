@@ -1,9 +1,9 @@
 <?php
 	require('./inc/database_connection.php');
 
-	$startingDate = $_GET['startingDate'];
-	$endingDate = $_GET['endingDate'];
-	$place = $_GET['place'];
+	$startingDate = filter_var($_GET['startingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$endingDate = filter_var($_GET['endingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$place = filter_var($_GET['place'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 	$query = "SELECT r.`date`, r.`time`, r.`lastname`, r.`firstname`, r.`email`, r.`phone`, p.`name` AS `place`
 	FROM `register` AS r
@@ -23,7 +23,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Document</title>
+	<title>Nouvelle Forge - Affichage filtré par lieu</title>
 
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 
@@ -49,7 +49,7 @@
 			</div>
 			<div class="col-2 mx-2">
 				<?php
-					$href = "test_export.php?startingDate=$startingDate&endingDate=$endingDate&place=$place";
+					$href = "pdf_export.php?startingDate=$startingDate&endingDate=$endingDate&place=$place";
 				?>
 				<a class="btn btn-nf btn-lg" href="<?php echo $href ?>">Export PDF</a>
 			</div>

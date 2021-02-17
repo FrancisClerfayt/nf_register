@@ -4,27 +4,27 @@
 
 	// parameters
 	if (isset($_GET['startingDate'])) {
-		$startingDate = $_GET['startingDate'];
+		$startingDate = filter_var($_GET['startingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	}
 
 	if (isset($_GET['endingDate'])) {
-		$endingDate = $_GET['endingDate'];
+		$endingDate = filter_var($_GET['endingDate'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	}
 
 	if (isset($_GET['lastname'])) {
-		$lastname = $_GET['lastname'];
+		$lastname = filter_var($_GET['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	} else {
 		$lastname = null;
 	}
 	
 	if (isset($_GET['firstname'])) {
-		$firstname = $_GET['firstname'];
+		$firstname = filter_var($_GET['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	} else {
 		$firstname = null;
 	}
 
 	if (isset($_GET['place'])) {
-		$place = $_GET['place'];
+		$place = filter_var($_GET['place'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	} else {
 		$place = null;
 	}
@@ -77,7 +77,7 @@
 			// Helvetica italic 12
 			$this->SetFont('Helvetica', 'I', 12);
 			// page number
-			$this->Cell(0, 8, 'Page '.$this->PageNo().'/{nb}', 0, 0, 'R');
+			$this->Cell(0, 8, 'Nouvelle Forge, 80 Avenue Roland Moreno, 59410 Anzin France , tél: 03 62 26 05 60 , mail: contact@nouvelleforge.fr | ' . ' Page '.$this->PageNo().'/{nb}', 0, 0, 'R');
 		}
 
 	}
@@ -97,9 +97,10 @@
 	function table_header($position_header) {
 		global $pdf;
 
-		$pdf->SetFillColor(73, 51, 137);	// background color
-		$pdf->SetDrawColor(0, 0, 0);			// borders color
-		$pdf->SetTextColor(255, 255, 255);// text color
+		$pdf->SetFont('Helvetica', 'B', 12);	// Helvetica Bold 12
+		$pdf->SetFillColor(73, 51, 137);			// background color
+		$pdf->SetDrawColor(0, 0, 0);					// borders color
+		$pdf->SetTextColor(255, 255, 255);		// text color
 
 		$pdf->SetY($position_header);
 
@@ -133,6 +134,7 @@
 
 		$pdf->Ln();
 
+		$pdf->SetFont('Helvetica', '', 11);	// Helvetica Regular 11
 		$pdf->SetFillColor(255, 255, 255);	// background color
 		$pdf->SetDrawColor(0, 0, 0);				// borders color
 		$pdf->SetTextColor(0, 0, 0);				// text color

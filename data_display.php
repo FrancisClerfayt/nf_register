@@ -2,7 +2,7 @@
 	require('./inc/database_connection.php');
 
 	if (isset($_GET['page'])){
-		$page = $_GET['page'];
+		$page = filter_var($_GET['page'], FILTER_SANITIZE_NUMBER_INT);
 	} else {
 		$page = 1;
 	}
@@ -41,7 +41,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Document</title>
+	<title>Nouvelle Forge - Administration registre</title>
 
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 
