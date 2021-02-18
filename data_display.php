@@ -91,9 +91,9 @@
 				<?php
 					$email = $_SESSION['email'];
 					$q = "SELECT `isAdmin` FROM `users` WHERE `email` = '$email'";
-					$stmt = $db->query($q);
-					$result = $stmt->fetch(PDO::FETCH_ASSOC);
-					if ($result['isAdmin'] == '1'){
+					$s = $db->query($q);
+					$r = $s->fetch(PDO::FETCH_ASSOC);
+					if ($r['isAdmin'] == '1'){
 						echo "<a href=\"admin.php\" class=\"btn btn-nf btn-lg\">Admin. comptes</a>";
 					}
 				?>
@@ -116,7 +116,6 @@
 				</thead>
 				<tbody>
 					<?php
-						
 						while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 							echo '<tr>';
 							$date = explode('-', $result['date']);
@@ -130,7 +129,6 @@
 							echo '<td>' . $result['place'] . '</td>';
 							echo '</tr>';
 						}
-						
 					?>
 				</tbody>
 			</table>

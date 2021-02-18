@@ -13,7 +13,8 @@
 		exit();
 	} else {
 		$id = $_GET['id'];
-		$query = "DELETE * FROM users WHERE id = $id";
+		$query = "DELETE FROM `users` WHERE `id` = '$id';";
 		$stmt = $db->query($query);
 		$result = $stmt->execute();
+		header('Location: admin.php');
 	}

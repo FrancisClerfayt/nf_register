@@ -41,9 +41,16 @@
 				</a>
 			</div>
 			<div class="col-2">
-				<a href="new_account.php" class="btn btn-nf btn-lg">Ajouter un compte</a>
+				<a href="create_account_form.php" class="btn btn-nf btn-lg">Ajouter un compte</a>
 			</div>
 		</div>
+		<?php
+			if(isset( $msg )) {
+				echo "<div class=\"row justify-content-center align-items-center\">
+					<p class=\"text-center text-warning\">" . @$msg . "</p>
+				</div>";
+			}
+		?>
 	</header>
 	<main class="container-fluid">
 		<div class="row justify-content-center align-items-center">
@@ -67,8 +74,8 @@
 								echo '<td>OUI</td>';
 							}
 							$id = $result['id'];
-							echo "<td><a href=\"edit_account.php?id=$id\" class=\"btn btn-nf btn-lg\">Modifier</a></td>";
-							echo "<td><a href=\"delete_account.php?id=$id\" class=\"btn btn-danger btn-lg\">Supprimer</a></td>";
+							echo "<td><a href=\"edit_account.php?id=$id\" class=\"btn btn-nf\">Modifier</a></td>";
+							echo "<td><a href=\"delete_account.php?id=$id\" class=\"btn btn-danger\">Supprimer</a></td>";
 							echo '</tr>';
 						}
 					?>
