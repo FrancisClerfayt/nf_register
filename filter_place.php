@@ -42,25 +42,25 @@
 <body>
 	<header class="container-fluid">
 		<div class="row justify-content-center align-items-center">
-			<div class="col-2 mx-2">
-				<a class="btn btn-nf btn-lg" href="filter_name_form.php">Filtrer par date et par nom</a>
-			</div>
-			<div class="col-2 mx-2">
-				<a class="btn btn-nf btn-lg" href="filter_place_form.php">Filtrer par date et par lieu</a>
-			</div>
-			<div class="col-2 mx-2">
+			<div class="col-2">
 				<a href="data_display.php">
 					<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
 				</a>
 			</div>
-			<div class="col-2 mx-2">
-				
+			<div class="col-2">
+				<a class="btn btn-nf" href="filter_name_form.php">Filtrer par date et par nom</a>
 			</div>
-			<div class="col-2 mx-2">
+			<div class="col-2">
+				<a class="btn btn-nf" href="filter_place_form.php">Filtrer par date et par lieu</a>
+			</div>
+			<div class="col-2">
 				<?php
 					$href = "pdf_export.php?startingDate=$startingDate&endingDate=$endingDate&place=$place";
 				?>
-				<a class="btn btn-nf btn-lg" href="<?php echo $href ?>">Export PDF</a>
+				<a class="btn btn-nf" href="<?php echo $href ?>">Export PDF</a>
+			</div>
+			<div class="col-2">
+				<a href="logout.php" class="btn btn-danger">Quitter</a>
 			</div>
 		</div>
 	</header>

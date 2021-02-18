@@ -74,7 +74,7 @@
 								echo '<td>OUI</td>';
 							}
 							$id = $result['id'];
-							echo "<td><a href=\"edit_account.php?id=$id\" class=\"btn btn-nf\">Modifier</a></td>";
+							echo "<td><a href=\"edit_account_form.php?id=$id\" class=\"btn btn-nf\">Modifier</a></td>";
 							echo "<td><a href=\"delete_account.php?id=$id\" class=\"btn btn-danger\">Supprimer</a></td>";
 							echo '</tr>';
 						}

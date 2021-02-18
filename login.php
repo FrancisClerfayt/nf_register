@@ -13,7 +13,19 @@
 		$result = $db->query($query)->fetchAll();
 
 		if (count($result) == 1) {
-			$_SESSION['email'] = $email;
+			
+			$user_id = $result[0]['id'];
+			$user_mail = $result[0]['email'];
+			$user_isAdmin = $result[0]['isAdmin'];
+
+			$_SESSION['id'] = $user_id;
+			$_SESSION['email'] = $user_mail;
+			if ($user_isAdmin == '1') {
+				$_SESSION['isAdmin'] = true;
+			} else {
+				$_SESSION['isAdmin'] = false;
+			}
+
 			header('Location: data_display.php');
 		} else {
 ?>
@@ -39,7 +51,7 @@
 				<div class="card">
 					<img class="card-img-top" src="./assets/logo_nf_2018.png" alt="logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin">
 					<div class="card-body">
-						<h1 class="card-title">
+						<h1 class="card-title text-center">
 							Une erreur s'est produite lors de la connexion à votre compte
 						</h1>
 						<a class="btn btn-nf btn-lg" href="login_form.php">

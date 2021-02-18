@@ -51,19 +51,6 @@
 						</select>
 					</div>
 				</div>
-				<!-- <div class="row justify-content-center align-items-center form-check my-2">
-					<div class="col-6 offset-4">
-						<input class="form-check-input" type="checkbox" name="rgpd" id="rgpd" required>
-						<label class="form-check-label" for="rgpd">
-							J'accepte la 
-							<a href="https://www.nouvelleforge.fr/politique-de-confidentialite/" target="_blank">
-								politique confidentialité et données personnelles
-							</a>
-							de Nouvelle Forge.
-						</label>
-						<div class="invalid-feedback">Merci de cochez la case pour valider le formulaire</div>
-					</div> -->
-				</div>
 				<div class="row justify-content-center align-items-center m-3">
 					<input class="btn btn-nf btn-lg col-3" type="submit" value="Envoyer">
 				</div>

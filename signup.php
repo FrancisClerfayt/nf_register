@@ -41,12 +41,12 @@
 		<div class=\"container-fluid\">
 			<div class=\"row justify-content-center align-items-center\">
 				<div class=\"card col-4\">
-					<img class=\"card-img-top logo_3\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
 					<div class=\"card-body\">
-						<h1 class=\"card-title\">
+						<h1 class=\"card-title text-center\">
 							Votre compte a été créé avec succès
 						</h1>
-						<a class=\"btn btn-nf btn-lg\" href=\"login_form.php\">
+						<a class=\"btn btn-nf\" href=\"login_form.php\">
 							Continuer
 						</a>
 					</div>
@@ -58,12 +58,12 @@
 		<div class=\"container-fluid\">
 			<div class=\"row justify-content-center align-items-center\">
 				<div class=\"card col-4\">
-					<img class=\"card-img-top logo_3\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
 					<div class=\"card-body\">
-						<h1 class=\"card-title\">
+						<h1 class=\"card-title text-center\">
 							Une erreur s'est produite lors de la création de votre compte
 						</h1>
-						<a class=\"btn btn-nf btn-lg\" href=\"signup_form.php\">
+						<a class=\"btn btn-nf\" href=\"signup_form.php\">
 							Retour
 						</a>
 					</div>

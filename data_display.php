@@ -66,37 +66,40 @@
 				</a>
 			</div>
 			<div class="col-2">
-				<a href="filter_name_form.php" class="btn btn-nf btn-lg">Filtrer par date et par nom</a>
+				<a href="filter_name_form.php" class="btn btn-nf">Filtrer par date et par nom</a>
 			</div>
 			<div class="col-2">
-				<a href="filter_place_form.php" class="btn btn-nf btn-lg">Filtrer par date et par lieu</a>
+				<a href="filter_place_form.php" class="btn btn-nf">Filtrer par date et par lieu</a>
 			</div>
 			<div class="col-2">
 				<?php 
 					if ($page > 1) {
 						$previous = $page - 1;
-						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf btn-lg\">Page précédente</a>";
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf mr-1\">Page précédente</a>";
 					}
 				?>
-			</div>
-			<div class="col-2">
 				<?php
 					if ($last_data < $size) {
 						$next = $page + 1;
-						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf btn-lg\">Page suivante</a>";
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf ml-1\">Page suivante</a>";
 					}
 				?>
 			</div>
 			<div class="col-2">
 				<?php
-					$email = $_SESSION['email'];
-					$q = "SELECT `isAdmin` FROM `users` WHERE `email` = '$email'";
-					$s = $db->query($q);
-					$r = $s->fetch(PDO::FETCH_ASSOC);
-					if ($r['isAdmin'] == '1'){
-						echo "<a href=\"admin.php\" class=\"btn btn-nf btn-lg\">Admin. comptes</a>";
+					if ($_SESSION['isAdmin']){
+						echo "<a href=\"admin.php\" class=\"btn btn-nf\">Admin. comptes</a>";
+					} else {
+						$email = $_SESSION['email'];
+						$q = "SELECT * FROM `users` WHERE `email` = '$email'";
+						$r = $db->query($query)->fetch(PDO::FETCH_ASSOC);
+						$id = $r['id'];
+						echo "<a href=\"edit_account_form.php?id=$id\" class=\"btn btn-nf\">Mon compte</a>";
 					}
 				?>
+			</div>
+			<div class="col-2">
+				<a href="logout.php" class="btn btn-danger">Quitter</a>
 			</div>
 		</div>
 	</header>
