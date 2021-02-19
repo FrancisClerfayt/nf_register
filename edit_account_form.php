@@ -34,7 +34,14 @@
 
 </head>
 <body>
-	<div class="container-fluid">
+	<header class="container-fluid">
+		<div class="row justify-content-center align-items-center">
+			<p class="text-center">
+				<?php echo "Connecté en tant que : " . $_SESSION['email']; ?>
+			</p>
+		</div>
+	</header>
+	<main class="container-fluid">
 		<div class="row justify-content-center align-items-center">
 			<img class="logo" src="./assets/logo_nf_2018.png" alt="logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin">
 		</div>
@@ -80,7 +87,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</main>
 	<script src="./js/bootstrap.bundle.js"></script>
 </body>
 </html>

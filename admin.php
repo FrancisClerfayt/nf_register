@@ -31,17 +31,25 @@
 </head>
 <body>
 	<header class="container-fluid">
+		<div class="row justify-content-center align-items-center">
+			<p class="text-center">
+				<?php echo "Connecté en tant que : " . $_SESSION['email']; ?>
+			</p>
+		</div>
 		<div class="row justify-content-around align-items-center">
-			<div class="col-2">
-				<a href="data_display.php" class="btn btn-nf btn-lg">Retour</a>
-			</div>
 			<div class="col-2">
 				<a href="data_display.php">
 					<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
 				</a>
 			</div>
 			<div class="col-2">
-				<a href="create_account_form.php" class="btn btn-nf btn-lg">Ajouter un compte</a>
+				<a href="data_display.php" class="btn btn-nf">Retour</a>
+			</div>
+			<div class="col-2">
+				<a href="create_account_form.php" class="btn btn-nf">Ajouter un compte</a>
+			</div>
+			<div class="col-2">
+				<a class="btn btn-danger" href="logout.php">Déconnexion</a>
 			</div>
 		</div>
 		<?php

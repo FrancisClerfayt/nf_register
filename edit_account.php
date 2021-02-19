@@ -76,7 +76,7 @@
 		echo "
 		<div class=\"container-fluid\">
 			<div class=\"row justify-content-center align-items-center\">
-				<div class=\"card col-4\">
+				<div class=\"card col-4 mt-5 border\">
 					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
 					<div class=\"card-body\">
 						<h1 class=\"card-title text-center\">
@@ -93,7 +93,7 @@
 		echo "
 		<div class=\"container-fluid\">
 			<div class=\"row justify-content-center align-items-center\">
-				<div class=\"card col-4\">
+				<div class=\"card col-4 mt-5 border\">
 					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
 					<div class=\"card-body\">
 						<h1 class=\"card-title text-center\">

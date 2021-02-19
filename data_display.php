@@ -59,6 +59,11 @@
 </head>
 <body>
 	<header class="container-fluid">
+		<div class="row justify-content-center align-items-center">
+			<p class="text-center">
+				<?php echo "Connecté en tant que : " . $_SESSION['email']; ?>
+			</p>
+		</div>
 		<div class="row justify-content-around align-items-center">
 			<div class="col-2">
 				<a href="data_display.php">
@@ -75,13 +80,13 @@
 				<?php 
 					if ($page > 1) {
 						$previous = $page - 1;
-						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf mr-1\">Page précédente</a>";
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $previous . " class=\"btn btn-nf mr-1\">Précédent</a>";
 					}
 				?>
 				<?php
 					if ($last_data < $size) {
 						$next = $page + 1;
-						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf ml-1\">Page suivante</a>";
+						echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . $next . " class=\"btn btn-nf ml-1\">Suivant</a>";
 					}
 				?>
 			</div>
@@ -90,16 +95,13 @@
 					if ($_SESSION['isAdmin']){
 						echo "<a href=\"admin.php\" class=\"btn btn-nf\">Admin. comptes</a>";
 					} else {
-						$email = $_SESSION['email'];
-						$q = "SELECT * FROM `users` WHERE `email` = '$email'";
-						$r = $db->query($query)->fetch(PDO::FETCH_ASSOC);
-						$id = $r['id'];
+						$id = $_SESSION['id'];
 						echo "<a href=\"edit_account_form.php?id=$id\" class=\"btn btn-nf\">Mon compte</a>";
 					}
 				?>
 			</div>
 			<div class="col-2">
-				<a href="logout.php" class="btn btn-danger">Quitter</a>
+				<a href="logout.php" class="btn btn-danger">Déconnexion</a>
 			</div>
 		</div>
 	</header>

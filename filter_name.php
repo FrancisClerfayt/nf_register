@@ -45,6 +45,11 @@
 <body>
 	<header class="container-fluid">
 		<div class="row justify-content-center align-items-center">
+			<p class="text-center">
+				<?php echo "Connecté en tant que : " . $_SESSION['email']; ?>
+			</p>
+		</div>
+		<div class="row justify-content-center align-items-center">
 			<div class="col-2">
 				<a href="data_display.php">
 					<img class="logo_2" src="./assets/logo_nf_2018.png" alt="logo Nouvelle Forge, 80 avenue Roland Moreno, 59410 Anzin">
