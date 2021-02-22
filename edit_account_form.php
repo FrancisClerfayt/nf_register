@@ -63,6 +63,7 @@
 							<option value="0" <?php if ($result['isAdmin'] == '0') echo "selected"; ?>>non</option>
 							<option value="1" <?php if ($result['isAdmin'] == '1') echo "selected"; ?>>oui</option>
 						</select>
+						<input class="d-none" type="password" id="old_pass" name="old_pass" value="<?php echo $result['password'] ?>">
 					</div>
 				</div>
 				<?php 
@@ -72,6 +73,7 @@
 					<div class="col-6">
 						<label class="form-label" for="password">Changez votre mot de passe (Laissez vide si vous ne voulez pas changer):</label>
 						<input class="form-control" type="password" id="password" name="password">
+						<input class="d-none" type="password" id="old_pass" name="old_pass" value="<?php echo $result['password'] ?>">
 					</div>
 				</div>
 				<?php

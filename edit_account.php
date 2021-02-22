@@ -25,7 +25,7 @@
 
 	require('./inc/database_connection.php');
 
-	$id = $_POST['id'];
+	$id = intval($_POST['id']);
 
 	$query = "SELECT * FROM `users` WHERE `id` = $id";
 	$stmt = $db->query($query);
@@ -45,6 +45,7 @@
 		} else {
 			$isAdmin = false;
 		}
+		$password = $_POST['old_pass'];
 	} else {
 		$user_password = filter_var(trim($_POST['password']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		if (empty($user_password)) {
@@ -52,60 +53,102 @@
 		} else {
 			$password = hash('sha256', $user_password);
 		}
+		$isAdmin = $result['isAdmin'];
 	}
 	
 	require('./inc/database_connection.php');
 
-	$res = false;
-
-	$query = 
-	"UPDATE `users` 
-	SET `email` = ?, `password` = ?, `isAdmin` = ?
-	WHERE `id` = ?";
+	$query = "UPDATE `users` SET `email` = ?, `password` = ?, `isAdmin` = ? WHERE `id` = ?";
 
 	$prep = $db->prepare($query);
 
+	var_dump($email);
+	echo "<br>";
 	$prep->bindParam(1, $email, PDO::PARAM_STR);
+	var_dump($password);
+	echo "<br>";
 	$prep->bindParam(2, $password, PDO::PARAM_STR);
+	var_dump($isAdmin);
+	echo "<br>";
 	$prep->bindParam(3, $isAdmin, PDO::PARAM_BOOL);
+	var_dump($id);
+	echo "<br>";
 	$prep->bindParam(4, $id, PDO::PARAM_INT);
 
 	$res = $prep->execute();
 
 	if ($res) {
-		echo "
-		<div class=\"container-fluid\">
-			<div class=\"row justify-content-center align-items-center\">
-				<div class=\"card col-4 mt-5 border\">
-					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
-					<div class=\"card-body\">
-						<h1 class=\"card-title text-center\">
-							Les modifications ont été effectuées avec succès
-						</h1>
-						<a class=\"btn btn-nf btn-lg align-self-center\" href=\"admin.php\">
-							Continuer
-						</a>
+		if ($_SESSION['isAdmin']) {
+			echo "
+			<div class=\"container-fluid\">
+				<div class=\"row justify-content-center align-items-center\">
+					<div class=\"card col-4 mt-5 border\">
+						<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+						<div class=\"card-body\">
+							<h1 class=\"card-title text-center\">
+								Les modifications ont été effectuées avec succès
+							</h1>
+							<a class=\"btn btn-nf btn-lg align-self-center\" href=\"admin.php\">
+								Continuer
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>";
+			</div>";
+		} else {
+			echo "
+			<div class=\"container-fluid\">
+				<div class=\"row justify-content-center align-items-center\">
+					<div class=\"card col-4 mt-5 border\">
+						<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+						<div class=\"card-body\">
+							<h1 class=\"card-title text-center\">
+								Les modifications ont été effectuées avec succès
+							</h1>
+							<a class=\"btn btn-nf btn-lg align-self-center\" href=\"data_display.php\">
+								Continuer
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>";
+		}
 	} else {
-		echo "
-		<div class=\"container-fluid\">
-			<div class=\"row justify-content-center align-items-center\">
-				<div class=\"card col-4 mt-5 border\">
-					<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
-					<div class=\"card-body\">
-						<h1 class=\"card-title text-center\">
-							Une erreur s'est produite lors de la modification du compte
-						</h1>
-						<a class=\"btn btn-nf btn-lg align-self-center\" href=\"admin.php\">
-							Retour
-						</a>
+		if ($_SESSION['isAdmin']) {
+			echo "
+			<div class=\"container-fluid\">
+				<div class=\"row justify-content-center align-items-center\">
+					<div class=\"card col-4 mt-5 border\">
+						<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+						<div class=\"card-body\">
+							<h1 class=\"card-title text-center\">
+								Une erreur s'est produite lors de la modification du compte
+							</h1>
+							<a class=\"btn btn-nf btn-lg align-self-center\" href=\"admin.php\">
+								Retour
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div> ";
+			</div> ";
+		} else {
+			echo "
+			<div class=\"container-fluid\">
+				<div class=\"row justify-content-center align-items-center\">
+					<div class=\"card col-4 mt-5 border\">
+						<img class=\"card-img-top logo_2\" src=\"./assets/logo_nf_2018.png\" alt=\"logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin\">
+						<div class=\"card-body\">
+							<h1 class=\"card-title text-center\">
+								Une erreur s'est produite lors de la modification du compte
+							</h1>
+							<a class=\"btn btn-nf btn-lg align-self-center\" href=\"data_display.php\">
+								Retour
+							</a>
+						</div>
+					</div>
+				</div>
+			</div> ";
+		}
 	}
 	?>
 	<script src="./js/bootstrap.bundle.js"></script>
