@@ -30,7 +30,7 @@
 	FROM `register` AS r
 	INNER JOIN `places` AS p
 	ON p.`id` = r.`place_id`
-	ORDER BY r.`date` ASC
+	ORDER BY r.`date` DESC
 	LIMIT $data_offset, $number_of_lines_to_display;";
 
 	$stmt = $db->query($query);

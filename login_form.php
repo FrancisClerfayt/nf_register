@@ -19,6 +19,11 @@
 		<div class="row justify-content-center align-items-center">
 			<img class="logo" src="./assets/logo_nf_2018.png" alt="logo de la nouvelle forge, 80 avenue roland moreno 59410 anzin">
 		</div>
+		<?php if (isset($_GET['pass_reset']) && $_GET['pass_reset'] == 'true'){ ?>
+		<div class="row justify-content-center align-items-center">
+			<p class="alert alert-success text-center w-50">Votre mot de passe a été changé avec succès</p>
+		</div>
+		<?php	}	?>
 		<div class="row justify-content-center align-items-center">
 			<form class="container form was-validated" id="login_form" method="POST" action="login.php">
 				<div class="row justify-content-center align-items-center">

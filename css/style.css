@@ -29,6 +29,11 @@ h6 {
 	width: 50%;
 }
 
+.logo_pop {
+	margin: 0 30%;
+	width: 40%;
+}
+
 @media screen and (min-width: 1400px) {
 	.logo {
 		margin: 0 40%;

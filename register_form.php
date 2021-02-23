@@ -1,10 +1,10 @@
 <?php
-	// 
 	require('./inc/database_connection.php');
 
 	if (isset($_GET['place'])) {
-		$places = $db->query('SELECT parameter FROM places;')->fetchAll();
 		$place = filter_var($_GET['place'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	} else {
+		$place = 'reception';
 	}
 
 	$query = "SELECT * FROM `places` WHERE `parameter` = '$place';";

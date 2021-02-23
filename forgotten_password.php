@@ -30,13 +30,13 @@
 
 			$to = $email;
 			$subject = "Réinitialisation mot de passe registre des visites Nouvelle Forge";
-			$href = "http://localhost/Projets/nf_register/password_reset_form.php?token =" . $token;
+			$href = "http://localhost/Projets/nf_register/password_reset_form.php?token=" . $token;
 			$msg = "Bonjour,\npour réinitialiser votre mot de passe cliquez sur :\n<a href=\"$href\" >Lien de réinitialisation</a>";
 			$msg = wordwrap($msg, 70);
 			
 			// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
 			$headers[] = 'MIME-Version: 1.0';
-			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+			$headers[] = 'Content-type: text/html; charset=utf-8';
  
 			// En-têtes additionnels
 			$headers[] = "To: <$email>";

@@ -54,14 +54,14 @@ document.getElementById('registerForm').addEventListener('submit', function(e){
 	formData.append('place_id', placeValue);
 	
 	// we prepare the url for the form treatment
-	let URL = "http://localhost/Projets/nf_register/register_send.php";
+	let URL = "./register_send.php";
 	
 	// we create a xml http request object
 	let xhr = new XMLHttpRequest();
 	
 	// when request is send
 	xhr.onload = function() {
-		alert("Votre visite a bien été enregistré");
+		document.location.href = "./thanks.php";
 	};
 	
 	// when error occured

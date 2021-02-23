@@ -16,7 +16,7 @@
 	} else {
 		require('./inc/database_connection.php');
 
-		$query = "SELECT `email` FROM `password_reset` WHERE `token` = '$token' LIMIT 0,1";
+		$query = "SELECT * FROM `password_reset` WHERE `token` = '$token'";
 
 		$stmt = $db->query($query);
 
@@ -38,6 +38,6 @@
 
 			$result = $stmt->execute();
 
-			header('Location: login_form.php');
+			header('Location: login_form.php?pass_reset=true');
 		}
 	}

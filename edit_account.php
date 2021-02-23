@@ -62,17 +62,9 @@
 
 	$prep = $db->prepare($query);
 
-	var_dump($email);
-	echo "<br>";
 	$prep->bindParam(1, $email, PDO::PARAM_STR);
-	var_dump($password);
-	echo "<br>";
 	$prep->bindParam(2, $password, PDO::PARAM_STR);
-	var_dump($isAdmin);
-	echo "<br>";
 	$prep->bindParam(3, $isAdmin, PDO::PARAM_BOOL);
-	var_dump($id);
-	echo "<br>";
 	$prep->bindParam(4, $id, PDO::PARAM_INT);
 
 	$res = $prep->execute();
