@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `nf_register`
 --
-CREATE DATABASE IF NOT EXISTS `nf_register` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `nf_register` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `nf_register`;
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `password_reset` (
   `id` int NOT NULL,
   `email` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,8 +45,8 @@ CREATE TABLE `password_reset` (
 CREATE TABLE `places` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `parameter` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `parameter` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tronquer la table avant d'insérer `places`
@@ -82,7 +82,7 @@ CREATE TABLE `register` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `place_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(100) NOT NULL,
   `isAdmin` tinyint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Index pour les tables déchargées
@@ -170,3 +170,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `users` (`email`, `password`, `isAdmin`)
+VALUES ('nicolas.balland@transalley.com', 'M0tD3P4ss3Qu1V4Ch4g3r', 1);

@@ -18,9 +18,10 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8">
+	<meta name="robots" content="noindex">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,22 +64,18 @@
 							<option value="0" <?php if ($result['isAdmin'] == '0') echo "selected"; ?>>non</option>
 							<option value="1" <?php if ($result['isAdmin'] == '1') echo "selected"; ?>>oui</option>
 						</select>
-						<input class="d-none" type="password" id="old_pass" name="old_pass" value="<?php echo $result['password'] ?>">
 					</div>
 				</div>
 				<?php 
-					} else {
+					}
 				?>
 				<div class="row justify-content-center align-items-center">
 					<div class="col-6">
-						<label class="form-label" for="password">Changez votre mot de passe (Laissez vide si vous ne voulez pas changer):</label>
+						<label class="form-label" for="password">Changez le mot de passe (Laissez vide si vous ne voulez pas changer):</label>
 						<input class="form-control" type="password" id="password" name="password">
 						<input class="d-none" type="password" id="old_pass" name="old_pass" value="<?php echo $result['password'] ?>">
 					</div>
 				</div>
-				<?php
-					}
-				?>
 				<div class="row justify-content-center align-items-center">
 					<div class="col-6 offset-4">
 						<input class="d-none" type="number" name="id" id="id" value="<?php echo $id; ?>">
